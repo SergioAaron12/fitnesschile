@@ -212,6 +212,16 @@ img {
   border: 1px solid #CBD5E1;
 }
 
+/* Enlaces a "Nosotros" y "Blog" desactivados temporalmente (se habilitan en la próxima actualización) */
+.link-disabled {
+  color: #94A3B8 !important;
+  cursor: not-allowed;
+}
+
+.link-disabled:hover {
+  color: #94A3B8 !important;
+}
+
 .cart-icon {
   stroke: currentColor;
 }

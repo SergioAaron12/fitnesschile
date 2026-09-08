@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupContactFormValidation();
   setupNewsletter();
   setupCartNotification();
+  setupDisabledLinks();
   setupMobileMenu();
 });
 
@@ -459,6 +460,17 @@ function setupCartNotification() {
       showToast("Módulo de compra en desarrollo (Fase 2 / ERS). Explora nuestro catálogo y contáctanos para cotizar.");
     });
   }
+}
+
+// Enlaces a "Nosotros" y "Blog" desactivados temporalmente (próxima actualización)
+function setupDisabledLinks() {
+  const disabledLinks = document.querySelectorAll("[data-disabled-link]");
+  disabledLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      showToast("Sección disponible en la próxima actualización.");
+    });
+  });
 }
 
 // Menú móvil
