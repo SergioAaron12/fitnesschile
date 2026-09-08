@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documento ERS - FitnessChile (Especificación de Requisitos de Software)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+    
+    :root {
+      --primary: #0284C7;
+      --primary-dark: #0369A1;
+      --accent: #FF4D2E;
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --text: #0F172A;
+      --text-muted: #475569;
+      --border: #E2E8F0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border);
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .badge-fase {
+      background: #EFF6FF;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      border: 1px solid #BFDBFE;
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #FFF;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(255, 77, 46, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-print:hover {
+      background: #D6391C;
+      transform: translateY(-1px);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--text);
+      margin: 2.2rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #F1F5F9;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--primary-dark);
+      margin: 1.5rem 0 0.6rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1rem 0 0.4rem;
+    }
+
+    p { margin-bottom: 1rem; color: #334155; }
+    
+    ul, ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+      color: #334155;
+    }
+
+    li { margin-bottom: 0.45rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background-color: #F8FAFC;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    tr:nth-child(even) { background-color: #F8FAFC; }
+
+    pre {
+      background: #0F172A;
+      color: #F8FAFC;
+      padding: 1.2rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      margin: 1.25rem 0;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: #F1F5F9;
+      color: #BE185D;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .case-card {
+      background: #F8FAFC;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .case-card h4 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    @media print {
+      body { background: #FFF; padding: 0; }
+      .container { border: none; box-shadow: none; padding: 0; max-width: 100%; }
+      .header-actions { display: none; }
+      pre { background: #F1F5F9; color: #0F172A; border: 1px solid #CBD5E1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="header-actions">
+      <span class="badge-fase">Documento ERS • Estándar IEEE 830</span>
+      <button class="btn-print" onclick="window.print()">
+        🖨️ Imprimir / Guardar en PDF
+      </button>
+    </div>
+
+    <h1>Documento de Especificación de Requisitos de Software (ERS)</h1>
+    <div class="subtitle">Proyecto: FitnessChile - Plataforma Web E-Commerce y Entrenamiento Deportivo</div>
+
+    <h2>1. Introducción</h2>
+    <p>En esta sección se proporciona una introducción completa al documento de Especificación de Requisitos de Software (ERS) para el sistema <b>FitnessChile</b>, definiendo las bases funcionales, alcance y marco técnico que rige su desarrollo colaborativo.</p>
+
+    <h3>1.1. Propósito</h3>
+    <p>El propósito del presente documento es definir de manera formal, rigurosa y exhaustiva los requerimientos funcionales y no funcionales que debe satisfacer la plataforma web de <b>FitnessChile</b>.</p>
+    <p>Este documento va dirigido a:</p>
+    <ul>
+      <li><b>Equipo de Desarrollo Fullstack:</b> Para guiar la arquitectura, maquetación semántica, diseño responsivo y lógica de validación del cliente.</li>
+      <li><b>Comité Evaluador y Docente:</b> Como evidencia documental del cumplimiento de los estándares de ingeniería de software, accesibilidad, estándares web (W3C) y metodologías colaborativas en Git.</li>
+      <li><b>Stakeholders y Administradores del Negocio (FitnessChile SpA):</b> Para alinear las expectativas comerciales, alcances de las entregas y futuras integraciones de pasarelas de pago y módulos de inventario.</li>
+    </ul>
+
+    <h3>1.2. Ámbito del Sistema</h3>
+    <h4>• Nombre del Sistema</h4>
+    <p>El sistema se denomina formalmente <b>"FitnessChile Web Platform & E-Commerce Core"</b> (Versión 1.0).</p>
+
+    <h4>• Lo que el Sistema Hará:</h4>
+    <ul>
+      <li><b>Presentación de Marca y Contenido Multimedia:</b> Exponer la identidad de la tienda mediante Hero Banner dinámico con slider automatizado y secciones informativas. Incluye reproductores de video responsivos (16:9) sobre técnica y preparación física.</li>
+      <li><b>Catálogo de Productos y Navegación Interconectada:</b> Desplegar la cuadrícula de 8 productos destacados con precios en CLP ($) y filtrado interactivo por categorías sin recargar la página. Navegación fluida entre <code>index.html</code>, <code>productos.html</code>, <code>nosotros.html</code>, <code>blog.html</code> y <code>contacto.html</code>.</li>
+      <li><b>Formulario de Contacto y Validación en JS:</b> Formulario accesible con etiquetas <code>&lt;label for&gt;</code>, autocompletado y validaciones preventivas en tiempo real con mensajes contextuales específicos bajo cada campo (correo RFC, teléfono chileno de 9 dígitos, etc.).</li>
+      <li><b>Newsletter y Notificaciones Toast:</b> Suscripción por correo electrónico y confirmaciones emergentes no invasivas.</li>
+    </ul>
+
+    <h4>• Lo que el Sistema NO Hará (Fase 1):</h4>
+    <ul>
+      <li><b>No procesará pagos bancarios reales en vivo:</b> El botón de carrito muestra estado informativo (<code>[Fase 1]</code>) hasta la conexión con Transbank / Webpay Plus en fase 2.</li>
+      <li><b>No gestionará autenticación de usuarios en base de datos:</b> El módulo de contraseñas y login fue resguardado en la carpeta <code>proximos_cambios/</code> para la fase de backend.</li>
+      <li><b>No controlará inventario ERP en tiempo real.</b></li>
+      <li><b>No gestionará envíos internacionales</b> (restringido a Chile).</li>
+    </ul>
+
+    <h4>• Beneficios, Objetivos y Metas:</h4>
+    <ul>
+      <li><b>Beneficios:</b> Vitrina digital 24/7 accesible desde cualquier pantalla con tiempos de carga mínimos al usar tecnologías nativas (HTML5, CSS3, JS Vanilla).</li>
+      <li><b>Objetivos:</b> Cumplir 100% con los estándares W3C, diseño responsivo y flujo de control de versiones con Git.</li>
+      <li><b>Metas:</b> Cuadrícula de 8 productos destacables, validación en cliente menor a 100ms y base modular para fases 2 y 3.</li>
+    </ul>
+
+    <h3>1.3. Definiciones, Acrónimos y Abreviaturas</h3>
+    <ul>
+      <li><b>ERS:</b> Especificación de Requerimientos de Software (IEEE 830).</li>
+      <li><b>Comanda / Orden de Pedido:</b> Detalle del pedido de productos o menú solicitado por el cliente para su despacho o retiro.</li>
+      <li><b>HTML5:</b> Estándar de etiquetado semántico (<code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>).</li>
+      <li><b>CSS3:</b> Hojas de estilo en cascada con variables (<code>:root</code>), Grid, Flexbox y media queries.</li>
+      <li><b>DOM:</b> Representación en árbol de los elementos HTML manipulables mediante JavaScript.</li>
+      <li><b>Módulo 11:</b> Algoritmo para verificar el dígito verificador del RUT chileno.</li>
+      <li><b>Toast:</b> Notificación emergente temporal en pantalla.</li>
+    </ul>
+
+    <h3>1.4. Referencias</h3>
+    <ol>
+      <li>Estándar <b>IEEE 830-1998</b> para Especificación de Requisitos de Software.</li>
+      <li>Especificaciones oficiales de <b>W3C</b> para HTML5 y CSS3.</li>
+      <li>Guías de Accesibilidad <b>WCAG 2.1</b>.</li>
+      <li>Convención <b>Conventional Commits</b> (v1.0.0).</li>
+      <li>Informe local de desarrollo colaborativo: <code>COLABORACION.md</code>.</li>
+      <li>Carpeta de módulos de fases posteriores: <code>proximos_cambios/</code>.</li>
+    </ol>
+
+    <h3>1.5. Visión General del Documento</h3>
+    <p>El documento consta de un área de definición del negocio, un área de especificación de requisitos (HTML5 semántico, CSS3 externo y validación de formularios en JS), y proporciona el detalle de los requerimientos a través de formularios de casos de uso como anexos.</p>
+
+    <h2>2. Requisitos Específicos</h2>
+    <ul>
+      <li><b>REQ-01 (Semántica HTML5):</b> Uso de etiquetas semánticas estándar sin abusar de <code>div</code>.</li>
+      <li><b>REQ-02 (Páginas Interconectadas):</b> 5 páginas HTML físicas enlazadas de manera coherente.</li>
+      <li><b>REQ-03 (Video Embebido Responsivo):</b> Video con proporción 16:9 adaptable a cualquier dispositivo.</li>
+      <li><b>REQ-04 (Hoja de Estilos Única):</b> Todo el sitio utiliza <code>css/style.css</code>.</li>
+      <li><b>REQ-05 a REQ-11 (Validación en JS):</b> Etiquetas asociadas, autocompletar, validación de correo RFC, teléfono de 9 dígitos, longitud de mensaje mínima de 15 caracteres y mensajes de error contextuales.</li>
+      <li><b>REQ-12 a REQ-14 (Git Colaborativo):</b> Ramas por integrante y commits semánticos.</li>
+    </ul>
+
+    <h2>3. Anexos: Casos de Uso del Sistema</h2>
+    <div class="case-card">
+      <h4>Caso de Uso CU-01: Filtrado de Catálogo de Productos</h4>
+      <p><b>Actor:</b> Cliente / Visitante.<br>
+      <b>Flujo:</b> El usuario ingresa a <code>productos.html</code>, selecciona una categoría (ej: Fuerza), el script en <code>js/app.js</code> filtra los productos sin recargar la página y muestra las especificaciones técnicas en un toast al hacer clic.</p>
+    </div>
+
+    <div class="case-card">
+      <h4>Caso de Uso CU-02: Envío de Consulta con Validación de Formulario</h4>
+      <p><b>Actor:</b> Cliente / Visitante.<br>
+      <b>Flujo:</b> El usuario completa el formulario en <code>contacto.html</code>. Si algún dato es erróneo, se muestra el mensaje específico en rojo bajo el campo. Si todos los datos son válidos, previene el refresco, limpia los campos y notifica con un Toast de confirmación.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
