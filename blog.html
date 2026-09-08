@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitnessChile | Blog Deportivo - Entrenamiento y Nutrición</title>
+  <meta name="description" content="Aprende sobre técnicas de entrenamiento de pesas, hipertrofia, uso de suplementos y nutrición deportiva con nuestros artículos especializados.">
+  
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Hoja de Estilos Externa Unificada -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER PRINCIPAL ==================== -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      
+      <a href="index.html" class="brand-logo" id="brand-logo" aria-label="FitnessChile Inicio">
+        <span class="logo-mark" aria-hidden="true">■</span>
+        <span class="logo-text">FitnessChile</span>
+      </a>
+
+      <!-- Navegación Principal Interconectada -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-divider" aria-hidden="true">|</li>
+          <li><a href="productos.html" class="nav-link">Productos</a></li>
+          <li class="nav-divider" aria-hidden="true">|</li>
+          <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+          <li class="nav-divider" aria-hidden="true">|</li>
+          <li><a href="blog.html" class="nav-link active">Blogs</a></li>
+          <li class="nav-divider" aria-hidden="true">|</li>
+          <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="cart-trigger-btn cart-disabled" id="open-cart-btn" aria-label="Carrito temporalmente pausado" title="Próximamente disponible en Fase 2">
+        <svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-label">Cart (0)</span>
+        <span class="badge-disabled">Fase 1</span>
+      </button>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ==================== CONTENEDOR PRINCIPAL ==================== -->
+  <main class="main-wrapper">
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <span>Blog de Entrenamiento</span>
+    </nav>
+
+    <!-- Banner de Cabecera -->
+    <header class="page-header-banner">
+      <h1>Blog & Guías de Entrenamiento</h1>
+      <p>Artículos técnicos redactados por nuestros preparadores físicos y nutricionistas deportivos para optimizar tus resultados y prevenir lesiones.</p>
+    </header>
+
+    <!-- ==================== GRID DE ARTÍCULOS SEMÁNTICOS ==================== -->
+    <section class="blog-grid" aria-label="Artículos del blog">
+      
+      <!-- Artículo 1 -->
+      <article class="blog-card">
+        <div class="blog-img-container">
+          <img src="assets/mancuernas.jpg" alt="Mancuernas ajustables en banco de pesas">
+          <span class="blog-badge">Entrenamiento</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <time datetime="2026-09-01">01 Sep 2026</time>
+            <span>•</span>
+            <span>Por Rodrigo Tapia</span>
+          </div>
+          <h2 class="blog-title">Sobrecarga Progresiva: Clave para la Hipertrofia</h2>
+          <p class="blog-excerpt">Descubre cómo aumentar la tensión mecánica a través del peso, repeticiones efectivas y pausas controladas para progresar sin estancamientos.</p>
+          <a href="#" class="blog-read-more" onclick="showArticleDetail(1); return false;">Leer Artículo Completo &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Artículo 2 -->
+      <article class="blog-card">
+        <div class="blog-img-container">
+          <img src="assets/creatina.jpg" alt="Pote de creatina monohidrato micronizada">
+          <span class="blog-badge">Nutrición</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <time datetime="2026-08-28">28 Ago 2026</time>
+            <span>•</span>
+            <span>Por Camila Morales</span>
+          </div>
+          <h2 class="blog-title">Creatina Monohidrato: Mitos y Beneficios Reales</h2>
+          <p class="blog-excerpt">La suplementación más respaldada por la evidencia clínica. Conoce la dosis diaria recomendada de 5g, hidratación celular y timing óptimo.</p>
+          <a href="#" class="blog-read-more" onclick="showArticleDetail(2); return false;">Leer Artículo Completo &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Artículo 3 -->
+      <article class="blog-card">
+        <div class="blog-img-container">
+          <img src="assets/bandas_resistencia.jpg" alt="Set de bandas elásticas de resistencia">
+          <span class="blog-badge">Movilidad</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <time datetime="2026-08-20">20 Ago 2026</time>
+            <span>•</span>
+            <span>Por Rodrigo Tapia</span>
+          </div>
+          <h2 class="blog-title">Activación y Flexibilidad con Bandas Elásticas</h2>
+          <p class="blog-excerpt">Rutina pre-entreno de 8 minutos para calentar hombros, caderas y glúteos previniendo tirones antes de sentadillas o press banca.</p>
+          <a href="#" class="blog-read-more" onclick="showArticleDetail(3); return false;">Leer Artículo Completo &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Artículo 4 -->
+      <article class="blog-card">
+        <div class="blog-img-container">
+          <img src="assets/whey_protein.jpg" alt="Proteína Whey Isolate 5 libras">
+          <span class="blog-badge">Suplementación</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <time datetime="2026-08-15">15 Ago 2026</time>
+            <span>•</span>
+            <span>Por Camila Morales</span>
+          </div>
+          <h2 class="blog-title">Whey Isolate vs Concentrado: ¿Cuál Elegir?</h2>
+          <p class="blog-excerpt">Comparativa nutricional de pureza, absorción rápida, porcentaje de lactosa y costo por gramo de proteína neta en deportistas.</p>
+          <a href="#" class="blog-read-more" onclick="showArticleDetail(4); return false;">Leer Artículo Completo &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Artículo 5 -->
+      <article class="blog-card">
+        <div class="blog-img-container">
+          <img src="assets/cinturon.jpg" alt="Cinturón de cuero de powerlifting">
+          <span class="blog-badge">Seguridad</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <time datetime="2026-08-08">08 Ago 2026</time>
+            <span>•</span>
+            <span>Por Matías Fuentes</span>
+          </div>
+          <h2 class="blog-title">Cuándo y Cómo Utilizar un Cinturón de Fuerza</h2>
+          <p class="blog-excerpt">Aprende la maniobra de Valsalva y la presión intraabdominal para proteger tu columna en levantamientos pesados de más del 80% 1RM.</p>
+          <a href="#" class="blog-read-more" onclick="showArticleDetail(5); return false;">Leer Artículo Completo &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Artículo 6 -->
+      <article class="blog-card">
+        <div class="blog-img-container">
+          <img src="assets/cuerda.jpg" alt="Cuerda de saltar speed rope de alta velocidad">
+          <span class="blog-badge">Cardio HIIT</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <time datetime="2026-07-30">30 Jul 2026</time>
+            <span>•</span>
+            <span>Por Rodrigo Tapia</span>
+          </div>
+          <h2 class="blog-title">Intervalos HIIT con Cuerda de Alta Velocidad</h2>
+          <p class="blog-excerpt">Quema de calorías y mejora cardiovascular en sesiones intensas de 15 minutos sin impacto perjudicial en rodillas.</p>
+          <a href="#" class="blog-read-more" onclick="showArticleDetail(6); return false;">Leer Artículo Completo &rarr;</a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER INFORMATIVO ==================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <div class="footer-col footer-brand">
+        <div class="footer-site-name">FitnessChile</div>
+        <p style="font-size:0.85rem; color:#94A3B8; margin-top:0.25rem;">Equipamiento y nutrición deportiva en Chile.</p>
+        
+        <div class="payment-methods" aria-label="Métodos de pago aceptados">
+          <div class="payment-badge" title="Visa">
+            <svg width="40" height="25" viewBox="0 0 48 30" fill="none">
+              <rect width="48" height="30" rx="4" fill="#1A1F71"/>
+              <text x="7" y="19" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" font-style="italic">VISA</text>
+            </svg>
+          </div>
+          <div class="payment-badge" title="Mastercard">
+            <svg width="40" height="25" viewBox="0 0 48 30" fill="none">
+              <rect width="48" height="30" rx="4" fill="#252525"/>
+              <circle cx="19" cy="15" r="9" fill="#EB001B"/>
+              <circle cx="29" cy="15" r="9" fill="#F79E1B" fill-opacity="0.85"/>
+            </svg>
+          </div>
+          <div class="payment-badge" title="Webpay Plus">
+            <svg width="46" height="25" viewBox="0 0 54 30" fill="none">
+              <rect width="54" height="30" rx="4" fill="#00693E"/>
+              <text x="5" y="18" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="bold">WEBPAY</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col footer-categories">
+        <ul class="category-links">
+          <li><a href="index.html" class="category-link">Inicio</a></li>
+          <li class="cat-divider">|</li>
+          <li><a href="productos.html" class="category-link">Catálogo</a></li>
+          <li class="cat-divider">|</li>
+          <li><a href="nosotros.html" class="category-link">Nosotros</a></li>
+          <li class="cat-divider">|</li>
+          <li><a href="blog.html" class="category-link">Blog</a></li>
+          <li class="cat-divider">|</li>
+          <li><a href="contacto.html" class="category-link">Contacto</a></li>
+        </ul>
+        <p class="copyright-text">© 2026 FitnessChile Spa. Todos los derechos reservados. Santiago de Chile.</p>
+      </div>
+
+      <div class="footer-col footer-newsletter">
+        <p class="newsletter-headline">Stay In Touch! Join our Newsletter.</p>
+        <form class="newsletter-form" id="newsletter-form" novalidate>
+          <input 
+            type="email" 
+            id="newsletter-email" 
+            class="newsletter-input" 
+            placeholder="Enter Email" 
+            required 
+            autocomplete="email"
+            aria-label="Correo electrónico para newsletter"
+          >
+          <button type="submit" class="newsletter-btn" id="newsletter-submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
