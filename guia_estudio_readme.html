@@ -266,7 +266,83 @@
     <h3>1.5. Visión General del Documento</h3>
     <p>El documento consta de un área de definición del negocio, un área de especificación de requisitos (HTML5 semántico, CSS3 externo y validación de formularios en JS), y proporciona el detalle de los requerimientos a través de formularios de casos de uso como anexos.</p>
 
-    <h2>2. Requisitos Específicos</h2>
+    <h2>2. Descripción General</h2>
+    <p>En esta sección se describen todos aquellos factores que afectan al producto y a sus requisitos, proporcionando el contexto de negocio, usuarios, arquitectura y restricciones técnicas.</p>
+
+    <h3>2.1. Perspectiva del Producto</h3>
+    <p><b>FitnessChile</b> es un sistema web modular e independiente. En su estado actual resuelve la interacción Front-End (HTML5, CSS3, JS Vanilla), y se integra conceptualmente con una arquitectura mayor que comprende un Backend REST API, base de datos relacional (PostgreSQL/MySQL), pasarela de pagos (Transbank Webpay Plus) y servicios de courier.</p>
+
+    <h3>2.2. Funciones del Producto</h3>
+    <ul>
+      <li><b>Multimedia y Contenidos:</b> Slider dinámico en el Hero, videos 16:9 de entrenamiento y artículos de blog.</li>
+      <li><b>Catálogo y Filtrado:</b> Grilla de 8 productos destacados y filtrado reactivo por categorías (*Fuerza*, *Suplementos*, *Accesorios*).</li>
+      <li><b>Formulario de Contacto:</b> Captura de consultas con validaciones preventivas en tiempo real y mensajes de error contextuales.</li>
+      <li><b>Newsletter y Alertas:</b> Suscripción por email y confirmaciones mediante Toast.</li>
+    </ul>
+
+    <h3>2.3. Características de los Usuarios (Tipos de Perfiles)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Perfil de Usuario</th>
+          <th>Nivel Educacional</th>
+          <th>Competencia Técnica</th>
+          <th>Responsabilidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>1. Usuario Administrador</b></td>
+          <td>Técnico Superior / Universitario.</td>
+          <td>Manejo de PC básico-intermedio y Excel nivel medio.</td>
+          <td>Supervisión de catálogo, precios, métricas y auditoría de consultas.</td>
+        </tr>
+        <tr>
+          <td><b>2. Usuario Cajero / Despacho</b></td>
+          <td>Enseñanza Media / Técnico Comercial.</td>
+          <td>Uso de PC a nivel de usuario y navegadores web.</td>
+          <td>Recepción de comandas/pedidos, validación de pagos y preparación de envíos.</td>
+        </tr>
+        <tr>
+          <td><b>3. Asesor Técnico / Entrenador</b></td>
+          <td>Técnico o Profesional Deportivo/Nutrición.</td>
+          <td>Uso de PC y mensajería a nivel de usuario.</td>
+          <td>Resolución de dudas biomecánicas y prescripción de suplementación.</td>
+        </tr>
+        <tr>
+          <td><b>4. Cliente / Visitante</b></td>
+          <td>Sin requisito específico.</td>
+          <td>Navegación web básica en móviles o PC.</td>
+          <td>Exploración de productos, visualización de videos y envío de consultas.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2.4. Restricciones</h3>
+    <ul>
+      <li><b>Políticas de la empresa:</b> Cumplimiento de la Ley del Consumidor de Chile (N° 19.496) y Ley de Protección de Datos (N° 19.628).</li>
+      <li><b>Limitaciones de hardware:</b> Ejecución fluida en dispositivos con procesadores de 2 núcleos y 2 GB de RAM.</li>
+      <li><b>Interfaces:</b> Dependencia de CDNs para Google Fonts y YouTube Embed (No-Cookie).</li>
+      <li><b>Lenguajes y Estándares:</b> Exclusivamente HTML5, CSS3 y JavaScript Vanilla (ES6+), sin frameworks pesados.</li>
+      <li><b>Seguridad:</b> Claves y módulos sensibles desacoplados en la carpeta <code>proximos_cambios/</code>.</li>
+    </ul>
+
+    <h3>2.5. Suposiciones y Dependencias</h3>
+    <ul>
+      <li>Conectividad a Internet para carga de fuentes y videos externos.</li>
+      <li>Habilitación de JavaScript en el navegador del cliente para el slider y validaciones.</li>
+      <li>Disponibilidad de servidores CDN externos (Google Fonts y YouTube).</li>
+    </ul>
+
+    <h3>2.6. Requisitos Futuros (Fases 2 y 3)</h3>
+    <ul>
+      <li>Integración de pasarela de pagos Transbank Webpay Plus (Redcompra y tarjetas de crédito).</li>
+      <li>Base de datos relacional PostgreSQL / MySQL para stock e inventario dinámico.</li>
+      <li>Panel administrativo (Dashboard) protegido con autenticación JWT y contraseñas hasheadas (Bcrypt).</li>
+      <li>Cálculo automático de costos de envío por región mediante APIs de couriers chilenos.</li>
+    </ul>
+
+    <h2>3. Requisitos Específicos</h2>
     <ul>
       <li><b>REQ-01 (Semántica HTML5):</b> Uso de etiquetas semánticas estándar sin abusar de <code>div</code>.</li>
       <li><b>REQ-02 (Páginas Interconectadas):</b> 5 páginas HTML físicas enlazadas de manera coherente.</li>
@@ -276,7 +352,7 @@
       <li><b>REQ-12 a REQ-14 (Git Colaborativo):</b> Ramas por integrante y commits semánticos.</li>
     </ul>
 
-    <h2>3. Anexos: Casos de Uso del Sistema</h2>
+    <h2>4. Anexos: Casos de Uso del Sistema</h2>
     <div class="case-card">
       <h4>Caso de Uso CU-01: Filtrado de Catálogo de Productos</h4>
       <p><b>Actor:</b> Cliente / Visitante.<br>

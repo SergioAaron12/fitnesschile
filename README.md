@@ -110,23 +110,170 @@ El presente documento está estructurado de forma modular y progresiva para faci
 
 ---
 
-## 2. Descripción General del Producto
+## 2. Descripción General
+
+En esta sección se describen todos aquellos factores que afectan al producto y a sus requisitos. No se describen los requisitos en sí mismos, sino su contexto operativo y de negocio. Esto permite comprender a cabalidad los requisitos detallados en la sección 3.
+
+---
 
 ### 2.1. Perspectiva del Producto
-**FitnessChile** opera como un sistema web independiente enfocado en el comercio electrónico deportivo. En esta primera fase, se entrega la capa visual y de interacción cliente (Front-End) completamente operativa, estableciendo los puntos de acople para la base de datos relacional y servicios REST de las fases posteriores.
 
-### 2.2. Clases y Características de Usuarios
-1. **Cliente / Deportista Visitante**:
-   - Navega por las páginas del sitio, revisa especificaciones de mancuernas, proteínas y accesorios, visualiza videos de entrenamiento y remite consultas comerciales mediante el formulario interactivo.
-2. **Asesor Técnico y Administrativo (FitnessChile)**:
-   - Recibe las consultas validadas del formulario para coordinar presupuestos, asesorías biomecánicas y resolver requerimientos de despacho.
-3. **Equipo de Desarrollo y Evaluadores**:
-   - Auditan el código fuente, la validación sintáctica de formularios y el flujo colaborativo de ramas y commits en Git.
+La plataforma **FitnessChile** se concibe como un sistema web modular e independiente enfocado en el comercio electrónico de artículos deportivos, acondicionamiento y asesoría técnica. 
 
-### 2.3. Entorno Operativo
-- **Navegadores Soportados**: Google Chrome (v100+), Mozilla Firefox (v100+), Microsoft Edge (v100+), Safari (v15+) y navegadores móviles en Android e iOS.
-- **Resoluciones Adaptables**: Pantallas móviles (desde 360px de ancho), tablets (768px) y monitores de escritorio (1024px a 1920px).
-- **Servidor Web Local**: Compatible con cualquier servidor estático HTTP (ej: Python `http.server`, Live Server de VS Code, Nginx o Apache).
+Aunque en esta primera entrega opera de forma autónoma en el lado del cliente (Front-End nativo), el producto está diseñado para interactuar e integrarse con un ecosistema corporativo mayor que abarca:
+- **Módulo Front-End Web (Alcance Actual)**: Interfaz de usuario interactiva, catálogo dinámico, slider publicitario, páginas informativas, video educativo y captura de consultas con validaciones en cliente.
+- **Módulo Backend y API REST (Fase 2)**: Capa de servicios encargada de la lógica de negocio, autenticación segura y persistencia de comandas u órdenes de compra.
+- **Servidor de Base de Datos Relacional (Fase 2 / 3)**: Almacenamiento centralizado de clientes, productos, inventario y registros de contacto.
+- **Pasarela Externa de Pagos (Fase 2 / 3)**: Conexión mediante API segura con Transbank Webpay Plus y Redcompra para liquidación de fondos.
+- **Servicio Externo de Logística y Courier**: Interfaz de integración con servicios postales de Chile (Chilexpress / Starken) para cálculo automatizado de fletes y tracking.
+
+```
++-------------------------------------------------------------------------------+
+|                    ECOSISTEMA INTEGRAL DE FITNESSCHILE                        |
++-------------------------------------------------------------------------------+
+|                                                                               |
+|   +-----------------------------------------------------------------------+   |
+|   |                 CAPA CLIENTE (FRONT-END) - FASE ACTUAL                |   |
+|   |  - index.html (Hero Slider & Video Responsivo 16:9)                   |   |
+|   |  - productos.html (Catálogo & Filtros de Categoría)                   |   |
+|   |  - contacto.html (Formulario con Validación Preventiva JS)            |   |
+|   |  - nosotros.html & blog.html (Identidad Corporativa y Guías)          |   |
+|   +-----------------------------------+-----------------------------------+   |
+|                                       | (Peticiones HTTP/HTTPS)               |
+|                                       v                                       |
+|   +-----------------------------------------------------------------------+   |
+|   |                   CAPA DE SERVICIOS (BACKEND REST API)                |   |
+|   |  - Gestión de Sesiones JWT & Hashing Bcrypt                           |   |
+|   |  - Procesamiento de Comandas y Carrito de Compras                     |   |
+|   +-------------------+-----------------------------------+---------------+   |
+|                       |                                   |                   |
+|                       v                                   v                   |
+|   +---------------------------+       +-------------------------------+       |
+|   |    BASE DE DATOS SQL      |       |  SERVICIOS EXTERNOS (APIs)    |       |
+|   |  - PostgreSQL / MySQL     |       |  - Pasarela Transbank Webpay  |       |
+|   |  - Productos, Stock y     |       |  - Notificaciones SMTP Email  |       |
+|   |    Registros de Contacto  |       |  - Courier (Chilexpress API)  |       |
+|   +---------------------------+       +-------------------------------+       |
++-------------------------------------------------------------------------------+
+```
+
+---
+
+### 2.2. Funciones del Producto
+
+A grandes rasgos, el sistema proporciona los siguientes bloques funcionales principales:
+
+1. **Gestión de Identidad y Contenido Multimedia**:
+   - Despliegue de imagen de marca con logotipo unificado y navegación con plecas.
+   - Rotación automatizada de diapositivas en el Hero Banner con pausa interactiva al situar el cursor (`hover`).
+   - Reproducción fluida y adaptable de videos demostrativos y formativos en formato 16:9 sin desfase visual.
+2. **Navegación e Interconexión de Secciones**:
+   - Enlace bidireccional entre 5 páginas HTML físicas, manteniendo la coherencia de menús y pie de página en toda la navegación.
+3. **Exploración y Filtrado del Catálogo de Productos**:
+   - Presentación de 8 artículos destacados organizados en cuadrículas de 4 columnas en escritorio.
+   - Filtrado reactivo en el navegador por familias de producto (*Fuerza y Pesas*, *Suplementación*, *Accesorios*).
+   - Consulta rápida de especificaciones técnicas mediante notificaciones tipo Toast.
+4. **Captura y Validación de Consultas de Clientes**:
+   - Formulario de contacto con campos asociados a etiquetas accesibles.
+   - Validación sintáctica y algorítmica de datos antes de permitir el envío.
+   - Retroalimentación inmediata mediante mensajes contextuales en rojo bajo cada control infractor.
+5. **Suscripción al Boletín Informativo (Newsletter)**:
+   - Registro de correos electrónicos desde el footer en todas las páginas con validación de sintaxis RFC.
+
+```
+                                +-----------------------------------+
+                                |     SISTEMA WEB FITNESSCHILE      |
+                                +-----------------+-----------------+
+                                                  |
+         +------------------------+---------------+---------------+-----------------------+
+         |                        |                               |                       |
+         v                        v                               v                       v
++------------------+    +-------------------+           +-------------------+   +--------------------+
+|  MULTIMEDIA &    |    |  CATÁLOGO &       |           |   FORMULARIO DE   |   |   NEWSLETTER &     |
+|  CONTENIDOS      |    |  FILTRADO         |           |   CONTACTO        |   |   NOTIFICACIONES   |
++------------------+    +-------------------+           +-------------------+   +--------------------+
+| • Slider Hero    |    | • Vista Grilla    |           | • Validación RFC  |   | • Captura de Email |
+| • Videos 16:9    |    | • Filtro Fuerza   |           | • Validación RUT  |   | • Alertas Toast    |
+| • Artículos Blog |    | • Filtro Suplem.  |           | • Teléfono 9 Díg. |   | • Confirmaciones   |
+| • Info Empresa   |    | • Especificación  |           | • Contador Texto  |   |   No Invasivas     |
++------------------+    +-------------------+           +-------------------+   +--------------------+
+```
+
+---
+
+### 2.3. Características de los Usuarios
+
+El sistema está diseñado para atender a diversos tipos de usuarios, cada uno con perfiles, nivel educacional, responsabilidades y competencias técnicas bien delimitadas:
+
+| Tipo de Perfil | Nivel Educacional | Competencia Técnica | Responsabilidad en el Sistema |
+| :--- | :--- | :--- | :--- |
+| **1. Usuario Administrador** *(Gerencia / Operaciones)* | Técnico Superior o Universitario (Administración, Informática o afín). | • Manejo de PC básico e intermedio.<br>• Manejo de hojas de cálculo (Excel nivel medio).<br>• Conocimiento en gestión web. | • Supervisión global del catálogo y precios.<br>• Consulta de registros de clientes y métricas de visitas.<br>• Auditoría de consultas recibidas a través del formulario.<br>• Definición de políticas de despacho y garantías. |
+| **2. Usuario Cajero / Asistente de Ventas y Despacho** | Enseñanza Media completa o Técnico en Comercio/Contabilidad. | • Uso de PC a nivel de usuario.<br>• Manejo fluido de navegadores web.<br>• Experiencia en sistemas de punto de venta (POS). | • Recepción de órdenes de pedido (comandas) emitidas por los clientes.<br>• Verificación de comprobantes de pago Webpay/Transferencias.<br>• Actualización del estado de preparación y entrega de paquetes.<br>• Emisión de boletas y facturas asociadas a la compra. |
+| **3. Usuario Asesor Técnico / Preparador Deportivo** | Título profesional o técnico en Educación Física, Kinesiología o Nutrición. | • Uso de PC y dispositivos móviles a nivel de usuario.<br>• Manejo de herramientas de mensajería y correo. | • Recepción y resolución de las consultas especializadas ingresadas por el formulario de contacto.<br>• Asesoramiento a clientes sobre pesos adecuados de mancuernas, barras y dosificación de suplementación (Creatina, Whey Protein). |
+| **4. Cliente Final / Deportista Visitante** | Sin requisito educacional específico. | • Navegación básica en Internet desde smartphones, tablets o PC. | • Exploración libre del catálogo y reproducción de videos.<br>• Filtrado de productos por categoría deportiva.<br>• Envío de consultas de cotización y despacho mediante el formulario.<br>• Suscripción al boletín de descuentos (Newsletter). |
+
+---
+
+### 2.4. Restricciones del Sistema
+
+Durante la etapa de diseño y desarrollo se aplican las siguientes limitaciones y restricciones normativas:
+
+1. **Políticas de la Empresa**:
+   - Cumplimiento de la **Ley del Consumidor de Chile (Ley N° 19.496)**: Precios informados en moneda de curso legal ($ CLP) con IVA incluido, y especificación clara de la garantía legal de 12 meses.
+   - Protección de datos personales conforme a la **Ley N° 19.628**: Los datos recopilados en los formularios se utilizan exclusivamente para responder al cliente y no se transfieren a terceros sin consentimiento.
+2. **Limitaciones de Hardware**:
+   - El sistema debe funcionar fluidamente en computadores y dispositivos móviles de gama de entrada (mínimo procesador de 2 núcleos, 2 GB de memoria RAM y pantallas desde 360px de resolución horizontal).
+3. **Interfaces con Otras Aplicaciones**:
+   - Dependencia de los servidores de **YouTube (No-Cookie)** para la carga y reproducción de videos formativos sin almacenar archivos de video pesados en el servidor local.
+   - Dependencia de la API de **Google Fonts** para la entrega de las fuentes tipográficas *Plus Jakarta Sans* y *Oswald*.
+4. **Operaciones Paralelas**:
+   - La arquitectura Front-End debe permitir la navegación y consulta simultánea de múltiples clientes en distintas pestañas o dispositivos sin colisiones de sesión local.
+5. **Funciones de Auditoría**:
+   - El repositorio de código debe mantener un registro inmutable de commits bajo la convención *Conventional Commits* con fecha, autor y mensaje descriptivo para cada componente.
+6. **Funciones de Control**:
+   - La interfaz debe implementar validación obligatoria en el cliente para sanitizar los datos de entrada, impidiendo el envío de cadenas vacías o textos que no cumplan los patrones de expresión regular.
+7. **Lenguajes de Programación y Estándares**:
+   - Uso estricto y exclusivo de **HTML5 semántico, CSS3 moderno y JavaScript Vanilla (ES6+)**. Queda restringido el uso de librerías externas o frameworks pesados (como React, Angular o Bootstrap) en esta fase de maquetación base.
+8. **Protocolos de Comunicación**:
+   - La aplicación debe servirse a través de los protocolos estándar **HTTP/1.1** y **HTTPS (TLS 1.2 o superior)**.
+9. **Requisitos de Habilidad del Equipo**:
+   - Los programadores deben dominar el estándar DOM W3C, maquetación CSS Grid / Flexbox y manipulación de eventos asíncronos nativos.
+10. **Criticidad de la Aplicación**:
+    - Criticidad **Media-Alta**: La disponibilidad de la información de catálogo y el correcto funcionamiento del canal de contacto inciden directamente en las ventas y la credibilidad comercial de FitnessChile SpA.
+11. **Consideraciones de Seguridad**:
+    - Resguardo estricto de credenciales y claves: ningún archivo en producción debe exponer contraseñas en texto plano ni tokens de prueba. Todas las claves previas fueron desacopladas y archivadas en la carpeta protegida `proximos_cambios/`.
+
+---
+
+### 2.5. Suposiciones y Dependencias
+
+Los requisitos establecidos en este documento se sustentan bajo los siguientes supuestos operativos y técnicos:
+
+1. **Conectividad a Internet**: Se asume que el usuario final dispone de una conexión a Internet de al menos 1 Mbps para descargar los estilos, fuentes tipográficas e interactuar con los videos embebidos de alta definición.
+2. **Habilitación de JavaScript en el Navegador**: Se asume que los clientes no tienen deshabilitada la ejecución de JavaScript en sus navegadores; en caso contrario, las validaciones dinámicas y el slider se degradarán a elementos estáticos.
+3. **Estabilidad de Proveedores de Contenido (CDNs)**: Se depende de la alta disponibilidad (SLA 99.9%) de los servidores de Google Fonts y YouTube. Si estos servicios experimentan caídas temporales, el sitio recurre a fuentes del sistema tipográfico local (`sans-serif`, `system-ui`).
+4. **Persistencia Local (LocalStorage)**: Se presupone que el navegador admite almacenamiento web local en caso de reactivar los módulos de autenticación o carrito en la fase siguiente.
+5. **Evolución del Backend**: Si en la Fase 2 el equipo decide implementar el backend en Node.js/Express, Python/Django o Java Spring Boot, los contratos de datos del formulario se mantendrán estables gracias a la estructura estándar de nombres de campo (`name`, `email`, `phone`, `subject`, `message`).
+
+---
+
+### 2.6. Requisitos Futuros (Planificación Fases 2 y 3)
+
+Las siguientes funcionalidades no forman parte de la evaluación inicial básica, pero se encuentran planificadas y documentadas en `proximos_cambios/NOTAS_ERS_FUTURAS.md` para su desarrollo en las siguientes etapas:
+
+1. **Integración de Pasarela de Pagos Transbank Webpay Plus**:
+   - Conexión vía SDK oficial con Transbank para procesamiento de transacciones con tarjeta de débito (Redcompra) y crédito en cuotas sin interés.
+2. **Persistencia en Base de Datos Relacional (PostgreSQL / MySQL)**:
+   - Migración del arreglo estático `PRODUCTS` a una base de datos relacional con tablas para categorías, productos, inventario en stock, clientes y órdenes de compra.
+3. **Panel Administrativo (Dashboard de Gestión)**:
+   - Interfaz restringida para los perfiles **Administrador** y **Cajero**, con login seguro mediante tokens JWT y contraseñas hasheadas con algoritmo Bcrypt.
+   - Formularios CRUD (Crear, Leer, Actualizar y Eliminar) para el catálogo de productos y precios.
+4. **Cálculo Dinámico de Envíos por Región**:
+   - Conexión con APIs de couriers nacionales (Chilexpress o Starken) para cotizar el despacho automático según el peso total de la comanda y la comuna de destino.
+5. **Módulo de Comentarios y Valoraciones de Productos**:
+   - Permitir a los clientes autenticados calificar con estrellas (1 a 5) y dejar reseñas verificadas en cada producto.
+
+---
 
 ---
 
