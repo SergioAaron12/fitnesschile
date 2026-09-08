@@ -343,24 +343,191 @@
     </ul>
 
     <h2>3. Requisitos Específicos</h2>
+    <p>Esta sección contiene los requisitos a un nivel de detalle suficiente como para permitir a los diseñadores estructurar el sistema y al equipo de pruebas (QA) planificar y ejecutar pruebas objetivas que demuestren el cumplimiento normativo. Describe comportamientos externos perceptibles por usuarios, operadores y sistemas.</p>
+    
+    <h3>Principios Aplicados en la Redacción</h3>
     <ul>
-      <li><b>REQ-01 (Semántica HTML5):</b> Uso de etiquetas semánticas estándar sin abusar de <code>div</code>.</li>
-      <li><b>REQ-02 (Páginas Interconectadas):</b> 5 páginas HTML físicas enlazadas de manera coherente.</li>
-      <li><b>REQ-03 (Video Embebido Responsivo):</b> Video con proporción 16:9 adaptable a cualquier dispositivo.</li>
-      <li><b>REQ-04 (Hoja de Estilos Única):</b> Todo el sitio utiliza <code>css/style.css</code>.</li>
-      <li><b>REQ-05 a REQ-11 (Validación en JS):</b> Etiquetas asociadas, autocompletar, validación de correo RFC, teléfono de 9 dígitos, longitud de mensaje mínima de 15 caracteres y mensajes de error contextuales.</li>
-      <li><b>REQ-12 a REQ-14 (Git Colaborativo):</b> Ramas por integrante y commits semánticos.</li>
+      <li><b>Legibilidad Universal:</b> Redactado en lenguaje técnico claro y estructurado, comprensible por perfiles multidisciplinarios.</li>
+      <li><b>Referenciación Documental:</b> Basado en el estándar internacional IEEE 830-1998, directrices W3C WCAG 2.1 y la legislación chilena (Leyes N° 19.496 y N° 19.628).</li>
+      <li><b>Identificación Unívoca:</b> Nomenclatura codificada por categoría (<code>RI-UI</code>, <code>RI-HW</code>, <code>RI-SW</code>, <code>RI-COM</code>, <code>RF</code>, <code>RNF</code>, <code>RO</code>).</li>
     </ul>
 
-    <h2>4. Anexos: Casos de Uso del Sistema</h2>
+    <h3>Matriz de Características de Calidad (IEEE 830)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>Criterio Aplicado en FitnessChile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Corrección</b></td>
+          <td>Todo requerimiento responde a necesidades reales de la tienda deportiva FitnessChile SpA.</td>
+        </tr>
+        <tr>
+          <td><b>No Ambigüedad</b></td>
+          <td>Interpretación unívoca respaldada por reglas de negocio, expresiones regulares y diagramas de flujo.</td>
+        </tr>
+        <tr>
+          <td><b>Completitud</b></td>
+          <td>Contempla respuestas a datos válidos y control de excepciones, desbordamientos y fallos.</td>
+        </tr>
+        <tr>
+          <td><b>Consistencia</b></td>
+          <td>No existen contradicciones técnicas entre requisitos funcionales y de interfaz.</td>
+        </tr>
+        <tr>
+          <td><b>Clasificación</b></td>
+          <td>Priorizados por nivel de criticidad (Esencial, Condicional y Opcional).</td>
+        </tr>
+        <tr>
+          <td><b>Verificabilidad</b></td>
+          <td>Todos los requisitos son medibles y testeables mediante procedimientos empíricos finitos.</td>
+        </tr>
+        <tr>
+          <td><b>Modificabilidad</b></td>
+          <td>Diseño modular que permite actualizaciones sin comprometer la coherencia global.</td>
+        </tr>
+        <tr>
+          <td><b>Trazabilidad</b></td>
+          <td>Vínculo bidireccional entre la especificación y los archivos físicos (<code>.html</code>, <code>.css</code>, <code>.js</code>).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3.1. Requisitos Comunes de las Interfaces</h3>
+    
+    <h4>3.1.1. Interfaces de Usuario (UI)</h4>
+    <ul>
+      <li><b>RI-UI-01 (Estructura de Pantallas):</b> Menú superior institucional fijo (header) con logotipo y enlaces de navegación, área principal centralizada (<code>&lt;main&gt;</code>) para renderizado modular y footer informativo de 4 columnas con formulario de newsletter.</li>
+      <li><b>RI-UI-02 (Estilo y Paleta Cromática):</b> Azul corporativo (<code>#0284C7</code>), Naranja enérgico de llamado a la acción (<code>#FF4D2E</code>), fondos oscuros (<code>#0F172A</code> / <code>#1E293B</code>) y superficies claras de lectura (<code>#F8FAFC</code>). Estados de error en rojo carmín (<code>#EF4444</code>) y éxito en verde (<code>#10B981</code>).</li>
+      <li><b>RI-UI-03 (Tipografía):</b> Oswald para títulos de impacto deportivo y Plus Jakarta Sans para el cuerpo de lectura y formularios.</li>
+      <li><b>RI-UI-04 (Entradas y Salidas):</b> Clics, pulsaciones táctiles, campos de texto y desplegables. Salidas visuales mediante notificaciones Toast temporizadas (3.5 seg), contadores de texto dinámicos y reproductores de video 16:9.</li>
+    </ul>
+
+    <h4>3.1.2. Interfaces de Hardware</h4>
+    <ul>
+      <li><b>RI-HW-01 (Dispositivos Touch Móviles):</b> Operatividad nativa en teléfonos inteligentes y tablets con pantallas táctiles capacitivas, garantizando un área de contacto mínima de 44×44 px por botón interactivo.</li>
+      <li><b>RI-HW-02 (Terminales de Punto de Venta - POS):</b> Adaptabilidad a pantallas táctiles de mesón o caja registradora (desde 1024×768 px).</li>
+      <li><b>RI-HW-03 (Periféricos):</b> Compatibilidad con teclados táctiles virtuales, lectores de código de barras (SKU) y ratón/teclado de escritorio.</li>
+    </ul>
+
+    <h4>3.1.3. Interfaces de Software</h4>
+    <ul>
+      <li><b>RI-SW-01 (Navegadores):</b> Compatibilidad con Chrome 90+, Firefox 88+, Edge 90+ y Safari 14+.</li>
+      <li><b>RI-SW-02 (Google Fonts API):</b> Invocación asíncrona de fuentes tipográficas oficiales con degradación a fuentes de sistema.</li>
+      <li><b>RI-SW-03 (YouTube IFrame Player):</b> Embebido sin cookies de rastreo (<code>youtube-nocookie.com</code>) con proporción fija 16:9.</li>
+      <li><b>RI-SW-04 (Pasarela Webpay Plus - Fase 2):</b> Conexión planificada vía API REST con Transbank mediante payloads JSON.</li>
+    </ul>
+
+    <h4>3.1.4. Interfaces de Comunicación</h4>
+    <ul>
+      <li><b>RI-COM-01 (Protocolos de Red):</b> Servido exclusivamente bajo HTTP/1.1 y HTTPS (TLS 1.2 o 1.3) a través de los puertos 80 y 443.</li>
+      <li><b>RI-COM-02 (Formato de Datos):</b> Intercambio de mensajes en UTF-8 utilizando objetos estructurados JSON y peticiones Fetch asíncronas.</li>
+    </ul>
+
+    <h3>3.2. Requisitos Funcionales</h3>
+
     <div class="case-card">
-      <h4>Caso de Uso CU-01: Filtrado de Catálogo de Productos</h4>
+      <h4>RF-01: Crear Comanda / Registrar Pedido en el Sistema</h4>
+      <p><b>Importancia:</b> Esencial | <b>Actores:</b> Garzón / Asistente de Ventas / Cajero / Cliente.<br>
+      <b>Descripción:</b> El garzón o asistente registra los diferentes productos deportivos solicitados por el cliente, consultando el catálogo disponible, seleccionando cantidades y calculando automáticamente subtotales, IVA (19%) y total general.<br>
+      <b>Entradas:</b> ID del producto, cantidad entera positiva (1 a 99), notas de entrega.<br>
+      <b>Salidas:</b> Código unívoco de comanda (ej: <code>CMD-2026-00128</code>), resumen valorizado e indicador de confirmación.<br>
+      <b>Almacenamiento (BD):</b> Tablas relacionales <code>ordenes_comanda</code> y <code>detalle_comanda</code> con claves foráneas asociadas.</p>
+    </div>
+
+    <div class="case-card">
+      <h4>RF-02: Filtrado y Consulta Dinámica de Catálogo Deportivo</h4>
+      <p><b>Importancia:</b> Esencial | <b>Actores:</b> Cliente Final / Asistente.<br>
+      <b>Descripción:</b> Filtrado instantáneo de artículos en <code>productos.html</code> por categoría (Fuerza, Cardio, Suplementos, Accesorios) sin recargar la página web, actualizando el DOM y mostrando fichas técnicas mediante Toast.</p>
+    </div>
+
+    <div class="case-card">
+      <h4>RF-03: Validación y Envío de Formulario de Contacto y Asesoría</h4>
+      <p><b>Importancia:</b> Esencial | <b>Actores:</b> Cliente / Asesor Técnico.<br>
+      <b>Descripción:</b> Captura de consultas con validación secuencial en cliente: Nombre alfabético (≥3 chars), Email con sintaxis RFC, Teléfono de Chile (9 dígitos), motivo obligatorio y mensaje (≥15 chars). Emite errores bajo el campo infractor y notifica con Toast tras el envío exitoso.</p>
+    </div>
+
+    <div class="case-card">
+      <h4>RF-04: Suscripción a Boletín Informativo (Newsletter)</h4>
+      <p><b>Importancia:</b> Condicional | <b>Actores:</b> Cliente / Visitante.<br>
+      <b>Descripción:</b> Registro de correos electrónicos desde el footer en cualquiera de las 5 páginas, verificando sintaxis RFC y desplegando confirmación flotante no invasiva.</p>
+    </div>
+
+    <div class="case-card">
+      <h4>RF-05: Reproducción y Control Multimedia (Video y Slider)</h4>
+      <p><b>Importancia:</b> Condicional | <b>Actores:</b> Cliente / Visitante.<br>
+      <b>Descripción:</b> Navegación por diapositivas promocionales en Home con botones de avance y reproducción de videos embebidos en alta definición adaptables a pantallas móviles y de escritorio.</p>
+    </div>
+
+    <h3>3.3. Requisitos No Funcionales (Mesurables)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Área</th>
+          <th>Identificador</th>
+          <th>Criterio de Aceptación Cuantitativo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Rendimiento</b></td>
+          <td>RNF-REND-01 / 02</td>
+          <td>Tiempo de respuesta en interacciones &lt; 200 ms. Carga inicial (FCP) &lt; 1.5 s en banda ancha y &lt; 2.5 s en redes móviles.</td>
+        </tr>
+        <tr>
+          <td><b>Seguridad</b></td>
+          <td>RNF-SEG-01 / 02</td>
+          <td>Sanitización total de inputs contra ataques XSS. Cifrado HTTPS con TLS 1.2+ obligatorio en producción. Claves aisladas en <code>proximos_cambios/</code>.</td>
+        </tr>
+        <tr>
+          <td><b>Fiabilidad</b></td>
+          <td>RNF-FIA-01 / 02</td>
+          <td>Tasa de fallo &lt; 0.1% (menos de 1 error cada 1.000 operaciones). Tiempo medio entre fallos (MTBF) &gt; 720 horas continuas.</td>
+        </tr>
+        <tr>
+          <td><b>Disponibilidad</b></td>
+          <td>RNF-DISP-01 / 02</td>
+          <td>Disponibilidad de servicio ≥ 99.5% mensual (indisponibilidad no planificada &lt; 3.6 hrs/mes). Mantenimiento nocturno (02:00 a 05:00 CLT).</td>
+        </tr>
+        <tr>
+          <td><b>Mantenibilidad</b></td>
+          <td>RNF-MANT-01 / 03</td>
+          <td>Arquitectura desacoplada en 3 capas (HTML, CSS, JS). Modificación de catálogo desde estructura JSON sin tocar marcado HTML.</td>
+        </tr>
+        <tr>
+          <td><b>Portabilidad</b></td>
+          <td>RNF-PORT-01 / 02</td>
+          <td>Compatibilidad cross-browser (Chrome, Firefox, Edge, Safari). Diseño responsivo fluido desde 360 px hasta 4K (3840 px).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3.4. Otros Requisitos</h3>
+    <ul>
+      <li><b>RO-LEG-01 (Ley del Consumidor N° 19.496):</b> Precios en $ CLP con IVA 19% explícito y garantía legal de 12 meses informada.</li>
+      <li><b>RO-LEG-02 (Ley de Protección de Datos N° 19.628):</b> Privacidad de datos de contacto sin comercialización a terceros.</li>
+      <li><b>RO-ACC-01 (Accesibilidad WCAG 2.1 AA):</b> Contraste de color ≥ 4.5:1, etiquetas <code>&lt;label&gt;</code> vinculadas, soporte de lectores de pantalla y navegación 100% por teclado con foco visible.</li>
+    </ul>
+
+    <h2>4. Anexos: Formulario de Casos de Uso del Sistema</h2>
+
+    <div class="case-card">
+      <h4>Caso de Uso CU-01: Creación de Comanda / Registro de Pedido en Tienda</h4>
+      <p><b>Actor:</b> Garzón / Asistente de Ventas / Cajero.<br>
+      <b>Flujo:</b> El cliente solicita implementos. El asistente selecciona productos en el terminal táctil, ingresa cantidades, el sistema computa subtotal e IVA 19%, y al confirmar genera el código de comanda <code>CMD-2026-00104</code> para despacho o cobro.</p>
+    </div>
+
+    <div class="case-card">
+      <h4>Caso de Uso CU-02: Consulta de Catálogo y Filtrado por Categoría</h4>
       <p><b>Actor:</b> Cliente / Visitante.<br>
       <b>Flujo:</b> El usuario ingresa a <code>productos.html</code>, selecciona una categoría (ej: Fuerza), el script en <code>js/app.js</code> filtra los productos sin recargar la página y muestra las especificaciones técnicas en un toast al hacer clic.</p>
     </div>
 
     <div class="case-card">
-      <h4>Caso de Uso CU-02: Envío de Consulta con Validación de Formulario</h4>
+      <h4>Caso de Uso CU-03: Envío de Consulta con Validación de Formulario</h4>
       <p><b>Actor:</b> Cliente / Visitante.<br>
       <b>Flujo:</b> El usuario completa el formulario en <code>contacto.html</code>. Si algún dato es erróneo, se muestra el mensaje específico en rojo bajo el campo. Si todos los datos son válidos, previene el refresco, limpia los campos y notifica con un Toast de confirmación.</p>
     </div>
