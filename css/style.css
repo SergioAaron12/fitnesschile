@@ -2136,3 +2136,112 @@ img {
   }
 }
 
+/* ==========================================================================
+   BANNER DE GRAN INAUGURACIÓN Y FABRICACIÓN NACIONAL
+   ========================================================================== */
+.inauguration-banner {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 60%, #0369A1 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border: 1px solid rgba(2, 132, 199, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.inauguration-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--color-brand-accent);
+}
+
+.inauguration-content {
+  flex: 1;
+}
+
+.inauguration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 77, 46, 0.18);
+  color: #FF725C;
+  border: 1px solid rgba(255, 77, 46, 0.45);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.inauguration-title {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+.inauguration-text {
+  color: #CBD5E1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.inauguration-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.btn-inauguration {
+  background: var(--color-brand-accent);
+  color: #FFFFFF;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(255, 77, 46, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-inauguration:hover {
+  background: #E03E22;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 77, 46, 0.45);
+}
+
+@media (max-width: 768px) {
+  .inauguration-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+  .inauguration-actions {
+    align-items: flex-start;
+    width: 100%;
+  }
+  .btn-inauguration {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

@@ -22,23 +22,32 @@ Este documento va dirigido a:
 
 ### 1.2. Ámbito del Sistema
 
+#### • Contexto Estratégico y Caso de Negocio:
+FitnessChile SpA enfrenta una necesidad comercial prioritaria y urgente: **promocionar a nivel nacional su capacidad de diseño y fabricación chilena de equipamiento deportivo de estándar olímpico, así como la Gran Inauguración de su nuevo Gimnasio Oficial y Showroom de Alto Rendimiento**.
+
+Bajo la propuesta de valor oficial:
+> *"Nuestra tienda oficial en Chile ofrece el catálogo más completo de implementos de pesas, máquinas y nutrición deportiva de alto rendimiento para entrenar en casa o gimnasio comercial."*
+
+La plataforma web es la vitrina digital y canal de conversión inmediato para convocar a la inauguración, permitir que atletas y dueños de gimnasio conozcan el equipamiento de fabricación nacional y adquieran implementos y suplementos con despacho rápido a todo el país.
+
 #### • Nombre del Sistema
 El sistema se denomina formalmente **"FitnessChile Web Platform & E-Commerce Core"** (Versión 1.0).
 
 #### • Lo que el Sistema Hará:
-1. **Presentación de Marca y Contenido Multimedia**:
+1. **Presentación de Marca, Fabricación e Inauguración Multimedia**:
    - Exponer la identidad visual de la tienda deportiva mediante una cabecera estructurada, Hero Banner dinámico con slider automatizado y secciones informativas de la empresa.
+   - Promocionar la **Gran Inauguración del nuevo Gimnasio Oficial FitnessChile** y el taller de **fabricación nacional de máquinas y pesas en acero estructural**.
    - Embeber reproductores de video responsivos (proporción 16:9) sobre biomecánica, técnicas de levantamiento e instalaciones de entrenamiento.
 2. **Catálogo de Productos y Navegación Interconectada**:
-   - Desplegar una cuadrícula interactiva de productos de fuerza, suplementación y accesorios deportivos con precios formateados en pesos chilenos ($ CLP).
+   - Desplegar una cuadrícula interactiva de productos de fuerza, máquinas, suplementación y accesorios deportivos con precios formateados en pesos chilenos ($ CLP).
    - Permitir el filtrado dinámico en el lado del cliente según categorías sin recargar la página.
    - Proveer enlaces funcionales que conectan de forma fluida y coherente las 5 páginas principales: Inicio (`index.html`), Catálogo (`productos.html`), Nosotros (`nosotros.html`), Blog (`blog.html`) y Contacto (`contacto.html`).
-3. **Formulario de Contacto y Validación de Entrada (Front-End)**:
-   - Capturar consultas de clientes mediante formularios accesibles con etiquetas asociadas (`<label for>`), autocompletado y descripciones semánticas (`aria-describedby`).
+3. **Formulario de Contacto, Cotizaciones y Pases al Gimnasio (Front-End)**:
+   - Capturar consultas de clientes, cotizaciones de equipamiento fabricado y solicitudes de visita al nuevo gimnasio mediante formularios accesibles con etiquetas asociadas (`<label for>`), autocompletado y descripciones semánticas (`aria-describedby`).
    - Implementar validaciones preventivas en JavaScript que bloqueen envíos con datos incompletos o inválidos (sintaxis de correo RFC, teléfono de 9 dígitos chileno, selección de motivo y mensaje mínimo de 15 caracteres).
    - Desplegar mensajes de error específicos y contextuales inmediatamente debajo de cada campo erróneo, limpiándolos en tiempo real mientras el usuario escribe la corrección.
 4. **Suscripción a Newsletter y Notificaciones Toast**:
-   - Capturar correos electrónicos en el pie de página con validación de sintaxis y generar confirmaciones visuales no invasivas mediante notificaciones flotantes (Toast).
+   - Capturar correos electrónicos en el pie de página con validación de sintaxis y generar confirmaciones visuales no invasivas mediante notificaciones flotantes (Toast) para novedades de apertura y descuentos.
 
 #### • Lo que el Sistema NO Hará (Alcance Excluido en Fase 1):
 1. **No procesará transacciones monetarias bancarias en vivo**: Las compras y cobros reales están desacoplados de esta primera fase; el botón de carrito permanece con estado informativo (`[Fase 1]`) hasta la integración del backend con Transbank / Webpay Plus.
@@ -118,10 +127,10 @@ En esta sección se describen todos aquellos factores que afectan al producto y 
 
 ### 2.1. Perspectiva del Producto
 
-La plataforma **FitnessChile** se concibe como un sistema web modular e independiente enfocado en el comercio electrónico de artículos deportivos, acondicionamiento y asesoría técnica. 
+La plataforma **FitnessChile** se concibe como el canal digital estratégico de la empresa para comercializar a nivel nacional el catálogo más completo de implementos de pesas, máquinas y nutrición deportiva de alto rendimiento para entrenar en casa o gimnasio comercial. Asimismo, es la herramienta prioritaria para promocionar activamente su **planta de diseño y fabricación chilena de equipamiento en acero estructural** y convocar a la comunidad a la **Gran Inauguración de su Gimnasio Oficial y Showroom Deportivo**.
 
 Aunque en esta primera entrega opera de forma autónoma en el lado del cliente (Front-End nativo), el producto está diseñado para interactuar e integrarse con un ecosistema corporativo mayor que abarca:
-- **Módulo Front-End Web (Alcance Actual)**: Interfaz de usuario interactiva, catálogo dinámico, slider publicitario, páginas informativas, video educativo y captura de consultas con validaciones en cliente.
+- **Módulo Front-End Web (Alcance Actual)**: Interfaz de usuario interactiva, catálogo dinámico con fichas técnicas, slider publicitario, páginas informativas de fabricación, banner de inauguración del gimnasio, video formativo y captura de consultas con validaciones en cliente.
 - **Módulo Backend y API REST (Fase 2)**: Capa de servicios encargada de la lógica de negocio, autenticación segura y persistencia de comandas u órdenes de compra.
 - **Servidor de Base de Datos Relacional (Fase 2 / 3)**: Almacenamiento centralizado de clientes, productos, inventario y registros de contacto.
 - **Pasarela Externa de Pagos (Fase 2 / 3)**: Conexión mediante API segura con Transbank Webpay Plus y Redcompra para liquidación de fondos.
