@@ -163,6 +163,7 @@ img {
 .nav-divider {
   color: #94A3B8;
   font-size: 0.85rem;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -404,6 +405,7 @@ img {
   top: 12px;
   left: 12px;
   background: rgba(15, 23, 42, 0.75);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: #FFF;
   font-size: 0.75rem;
@@ -423,6 +425,7 @@ img {
   height: 38px;
   border-radius: 50%;
   background: rgba(15, 23, 42, 0.75);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   color: #FFFFFF;
   display: flex;
@@ -480,6 +483,7 @@ img {
   bottom: 12px;
   left: 12px;
   background: rgba(15, 23, 42, 0.85);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   color: #FFF;
   font-size: 0.72rem;
@@ -828,6 +832,7 @@ img {
   position: fixed;
   inset: 0;
   background-color: rgba(15, 23, 42, 0.6);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 200;
   opacity: 0;
@@ -1071,6 +1076,7 @@ img {
   position: fixed;
   inset: 0;
   background-color: rgba(15, 23, 42, 0.65);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 300;
   display: flex;
@@ -1192,6 +1198,7 @@ img {
   cursor: pointer;
   transition: all var(--transition-fast);
   box-shadow: var(--shadow-sm);
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1884,9 +1891,64 @@ img {
 }
 
 .value-icon {
-  font-size: 2.2rem;
+  width: 44px;
+  height: 44px;
   margin-bottom: 1rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-primary);
+}
+
+.value-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Clases utilitarias que reemplazan estilos inline puntuales */
+.footer-tagline {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  margin-top: 0.25rem;
+}
+
+.catalog-cta-link {
+  font-weight: 700;
+  color: var(--color-brand-primary);
+}
+
+.about-text .hero-actions {
+  margin-top: 1.5rem;
+}
+
+.products-section + .values-grid {
+  margin-top: 3.5rem;
+}
+
+.faq-text {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin-bottom: 0.75rem;
+}
+
+.faq-text:last-child {
+  margin-bottom: 0;
+}
+
+.char-counter-label {
+  font-weight: normal;
+  font-size: 0.8rem;
+  color: #64748B;
+}
+
+.privacy-link {
+  color: var(--color-brand-cyan);
+  text-decoration: underline;
+}
+
+#error-terms {
+  margin-top: -1rem;
+  margin-bottom: 1.25rem;
 }
 
 .value-card h3 {
@@ -2002,6 +2064,7 @@ img {
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
   font-weight: 700;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 

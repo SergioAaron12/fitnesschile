@@ -4,7 +4,7 @@ Este documento centraliza los requisitos y funcionalidades que han sido temporal
 
 ---
 
-## 🔐 1. Módulo de Autenticación y Seguridad (Fase 2 / Backend)
+## 1. Módulo de Autenticación y Seguridad (Fase 2 / Backend)
 - **Cuentas y Roles**:
   - Registro de usuarios con validación de RUT chileno (algoritmo Módulo 11).
   - Encriptación de contraseñas (hashing con Bcrypt en backend).
@@ -18,7 +18,7 @@ Este documento centraliza los requisitos y funcionalidades que han sido temporal
 
 ---
 
-## 🛒 2. Módulo de Comercio Electrónico y Carrito de Compras (Fase 2 / 3)
+## 2. Módulo de Comercio Electrónico y Carrito de Compras (Fase 2 / 3)
 - **Carrito Persistente**:
   - Sincronización de carrito en base de datos para usuarios autenticados.
   - Cálculo de costos de envío dinámicos por región de Chile (Chilexpress / Starken).
@@ -28,7 +28,7 @@ Este documento centraliza los requisitos y funcionalidades que han sido temporal
 
 ---
 
-## 📦 3. Gestión de Inventario y Panel de Administración (Fase 3)
+## 3. Gestión de Inventario y Panel de Administración (Fase 3)
 - CRUD de productos (alta, baja, modificación, control de stock).
 - Historial de órdenes de compra y seguimiento de envíos en tiempo real.
 - Panel de reportes de ventas y métricas de rendimiento.

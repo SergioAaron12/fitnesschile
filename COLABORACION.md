@@ -4,7 +4,7 @@ Este documento certifica y describe la metodología de trabajo colaborativo empl
 
 ---
 
-## 👥 1. Equipo de Desarrollo y Distribución de Tareas
+## 1. Equipo de Desarrollo y Distribución de Tareas
 
 | Integrante | Rol en el Proyecto | Tareas Principales Asignadas | Rama de Trabajo |
 | :--- | :--- | :--- | :--- |
@@ -15,7 +15,7 @@ Este documento certifica y describe la metodología de trabajo colaborativo empl
 
 ---
 
-## 🌳 2. Estrategia de Ramas (Git Workflow)
+## 2. Estrategia de Ramas (Git Workflow)
 
 Se utilizó el modelo **Feature Branching**:
 1. **`main`**: Rama principal con versiones estables integradas y listas para evaluación/despliegue.
@@ -27,7 +27,7 @@ Se utilizó el modelo **Feature Branching**:
 
 ---
 
-## 📜 3. Convención y Calidad de Mensajes de Commit
+## 3. Convención y Calidad de Mensajes de Commit
 
 Los mensajes de commit se redactaron siguiendo el estándar internacional **Conventional Commits**:
 - `feat(...)`: Incorporación de una nueva funcionalidad.

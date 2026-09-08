@@ -244,7 +244,7 @@ function quickViewProduct(productId) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
 
-  showToast(`🔍 ${product.name} - ${formatCLP(product.price)} CLP (${product.attributes})`);
+  showToast(`${product.name} - ${formatCLP(product.price)} CLP (${product.attributes})`);
 }
 
 // ==================== 4. VALIDACIÓN INTERACTIVA DE FORMULARIOS (JS) ====================
@@ -282,7 +282,7 @@ function setupContactFormValidation() {
     }
     const errorEl = document.getElementById(errorElementId);
     if (errorEl) {
-      errorEl.textContent = "⚠️ " + message;
+      errorEl.textContent = message;
       errorEl.classList.add("visible");
     }
   }
@@ -405,7 +405,7 @@ function setupContactFormValidation() {
       const clientName = nameInput.value.trim();
       
       // Simulación de envío exitoso
-      showToast(`✅ ¡Mensaje enviado con éxito, ${clientName}! Te contactaremos dentro de 24 horas.`);
+      showToast(`¡Mensaje enviado con éxito, ${clientName}! Te contactaremos dentro de 24 horas.`);
       
       form.reset();
       if (charCounter) charCounter.textContent = "0";
@@ -418,7 +418,7 @@ function setupContactFormValidation() {
         }
       });
     } else {
-      showToast("⚠️ Por favor revisa los campos marcados en rojo antes de enviar.");
+      showToast("Por favor revisa los campos marcados en rojo antes de enviar.");
       
       // Enfocar el primer elemento con error
       const firstInvalid = form.querySelector(".input-error");
@@ -441,10 +441,10 @@ function setupNewsletter() {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
       if (emailRegex.test(email)) {
-        showToast(`🎉 ¡Gracias por suscribirte! Cupón de 10% enviado a ${email}`);
+        showToast(`¡Gracias por suscribirte! Cupón de 10% enviado a ${email}`);
         input.value = "";
       } else {
-        showToast("⚠️ Por favor ingresa un correo electrónico válido para el newsletter.");
+        showToast("Por favor ingresa un correo electrónico válido para el newsletter.");
         input.focus();
       }
     });
@@ -456,7 +456,7 @@ function setupCartNotification() {
   const openCartBtn = document.getElementById("open-cart-btn");
   if (openCartBtn) {
     openCartBtn.addEventListener("click", () => {
-      showToast("ℹ️ Módulo de compra en desarrollo (Fase 2 / ERS). Explora nuestro catálogo y contáctanos para cotizar.");
+      showToast("Módulo de compra en desarrollo (Fase 2 / ERS). Explora nuestro catálogo y contáctanos para cotizar.");
     });
   }
 }
@@ -475,7 +475,7 @@ function setupMobileMenu() {
 
 // Detalle simulado de artículo de blog
 function showArticleDetail(id) {
-  showToast(`📖 Abriendo artículo #${id}. El contenido completo estará disponible en la versión extendida.`);
+  showToast(`Abriendo artículo #${id}. El contenido completo estará disponible en la versión extendida.`);
 }
 
 // ==================== 5. SISTEMA DE NOTIFICACIONES TOAST ====================

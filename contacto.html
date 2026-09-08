@@ -124,11 +124,11 @@
 
         <article class="contact-info-card">
           <h3>Preguntas Frecuentes</h3>
-          <p style="font-size:0.85rem; color:#64748B; margin-bottom:0.75rem;">
+          <p class="faq-text">
             <strong>¿Cuánto demora el despacho?</strong><br>
             En la Región Metropolitana entregamos en 24 a 48 hrs hábiles. Para regiones, entre 3 y 5 días hábiles.
           </p>
-          <p style="font-size:0.85rem; color:#64748B;">
+          <p class="faq-text">
             <strong>¿Tienen retiro en bodega?</strong><br>
             Sí, previa confirmación de tu pedido en nuestra sede de Providencia.
           </p>
@@ -221,7 +221,7 @@
           <div class="form-control-group">
             <label for="contact-message">
               Mensaje o Consulta Detallada <span class="required-badge">*</span>
-              <span style="font-weight:normal; font-size:0.8rem; color:#64748B;">(<span id="char-counter">0</span>/15 mín.)</span>
+              <span class="char-counter-label">(<span id="char-counter">0</span>/15 mín.)</span>
             </label>
             <textarea 
               id="contact-message" 
@@ -239,10 +239,10 @@
           <div class="form-checkbox-row">
             <input type="checkbox" id="contact-terms" name="terms" required aria-describedby="error-terms">
             <label for="contact-terms">
-              Confirmo que he leído y acepto la <a href="#" style="color:var(--color-brand-cyan); text-decoration:underline;">política de privacidad</a> y autorizo el contacto para la resolución de mi consulta.
+              Confirmo que he leído y acepto la <a href="#" class="privacy-link">política de privacidad</a> y autorizo el contacto para la resolución de mi consulta.
             </label>
           </div>
-          <span class="field-error" id="error-terms" style="margin-top: -1rem; margin-bottom: 1.25rem;" role="alert"></span>
+          <span class="field-error" id="error-terms" role="alert"></span>
 
           <!-- Botón de Envío -->
           <button type="submit" class="btn-submit-contact" id="btn-submit-contact">
@@ -266,7 +266,7 @@
       
       <div class="footer-col footer-brand">
         <div class="footer-site-name">FitnessChile</div>
-        <p style="font-size:0.85rem; color:#94A3B8; margin-top:0.25rem;">Equipamiento y nutrición deportiva en Chile.</p>
+        <p class="footer-tagline">Equipamiento y nutrición deportiva en Chile.</p>
         
         <div class="payment-methods" aria-label="Métodos de pago aceptados">
           <div class="payment-badge" title="Visa">
